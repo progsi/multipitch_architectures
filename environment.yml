@@ -23,6 +23,7 @@ dependencies:
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
   - comm=0.1.2=py39h06a4308_0
   - contourpy=1.0.5=py39hdb19cb5_0
+  - cpuonly=2.0=0
   - cryptography=38.0.4=py39h9ce1e76_0
   - cycler=0.11.0=pyhd3eb1b0_0
   - debugpy=1.5.1=py39h295c915_0
@@ -31,18 +32,21 @@ dependencies:
   - executing=0.8.3=pyhd3eb1b0_0
   - ffmpeg=4.2.2=h20bf706_0
   - fftw=3.3.9=h27cfd23_1
+  - filelock=3.9.0=py39h06a4308_0
   - flit-core=3.6.0=pyhd3eb1b0_0
   - fonttools=4.25.0=pyhd3eb1b0_0
   - freetype=2.12.1=h4a9f257_0
   - gettext=0.21.1=h27087fc_0
   - giflib=5.2.1=h5eee18b_1
   - gmp=6.2.1=h295c915_3
+  - gmpy2=2.1.2=py39heeb90bb_0
   - gnutls=3.6.15=he1e5248_0
   - idna=3.4=py39h06a4308_0
   - intel-openmp=2021.4.0=h06a4308_3561
   - ipykernel=6.19.2=py39hb070fc8_0
   - ipython=8.8.0=py39h06a4308_0
   - jedi=0.18.1=py39h06a4308_1
+  - jinja2=3.1.2=py39h06a4308_0
   - joblib=1.1.1=py39h06a4308_0
   - jpeg=9e=h7f8727e_0
   - jupyter_client=7.4.8=py39h06a4308_0
@@ -80,18 +84,23 @@ dependencies:
   - llvm-openmp=14.0.6=h9e868ea_0
   - llvmlite=0.38.0=py39h4ff587b_0
   - lz4-c=1.9.4=h6a678d5_0
+  - markupsafe=2.1.1=py39h7f8727e_0
   - matplotlib-base=3.6.2=py39h945d387_0
   - matplotlib-inline=0.1.6=py39h06a4308_0
   - mkl=2021.4.0=h06a4308_640
   - mkl-service=2.4.0=py39h7f8727e_0
   - mkl_fft=1.3.1=py39hd3c417c_0
   - mkl_random=1.2.2=py39h51133e4_0
+  - mpc=1.1.0=h10f8cd9_1
+  - mpfr=4.0.2=hb69a4c5_1
   - mpg123=1.31.3=hcb278e6_0
+  - mpmath=1.2.1=py39h06a4308_0
   - msgpack-python=1.0.3=py39hd09550d_0
   - munkres=1.1.4=py_0
   - ncurses=6.4=h6a678d5_0
   - nest-asyncio=1.5.6=py39h06a4308_0
   - nettle=3.7.3=hbbd107a_1
+  - networkx=2.8.4=py39h06a4308_0
   - numba=0.55.1=py39h51133e4_0
   - numexpr=2.8.4=py39he184ba9_0
   - numpy=1.21.5=py39h6c91a56_3
@@ -120,6 +129,8 @@ dependencies:
   - python=3.9.16=h7a1cb2a_0
   - python-dateutil=2.8.2=pyhd3eb1b0_0
   - python_abi=3.9=2_cp39
+  - pytorch=2.0.0=py3.9_cpu_0
+  - pytorch-mutex=1.0=cpu
   - pytz=2022.7=py39h06a4308_0
   - pyzmq=23.2.0=py39h6a678d5_0
   - readline=8.2=h5eee18b_0
@@ -132,9 +143,12 @@ dependencies:
   - soxr-python=0.3.3=py39h2ae25f5_0
   - sqlite=3.40.1=h5082296_0
   - stack_data=0.2.0=pyhd3eb1b0_0
+  - sympy=1.11.1=py39h06a4308_0
   - tbb=2021.6.0=hdb19cb5_1
   - threadpoolctl=2.2.0=pyh0d69192_0
   - tk=8.6.12=h1ccaba5_0
+  - torchaudio=2.0.0=py39_cpu
+  - torchvision=0.15.0=py39_cpu
   - tornado=6.2=py39h5eee18b_0
   - traitlets=5.7.1=py39h06a4308_0
   - typing_extensions=4.4.0=py39h06a4308_0
@@ -150,4 +164,5 @@ dependencies:
   - pip:
       - librosa==0.8.0
       - resampy==0.4.2
+      - torchinfo==1.7.2
 prefix: /home/simon/anaconda3/envs/mpa
