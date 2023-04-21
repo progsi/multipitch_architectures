@@ -60,7 +60,7 @@ def compute_hcqt(f_audio, fs=22050, fmin=librosa.note_to_hz('C1'), fs_hcqt_targe
     if center_bins:
         fmin = fmin / 2**((bins_per_semitone-1)/(2*bins_per_octave))
 
-    tuning_est = librosa.estimate_tuning(f_audio, bins_per_octave=bins_per_octave)
+    tuning_est = librosa.estimate_tuning(y=f_audio, bins_per_octave=bins_per_octave)
     fmin_tuned = fmin * 2**(tuning_est / bins_per_octave)
 
     f_cqt = librosa.cqt(f_audio, sr=fs, hop_length=hopsize_cqt, fmin=fmin_tuned, n_bins=n_bins,
