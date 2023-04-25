@@ -142,7 +142,7 @@ def main(inputdir: str, model_name: str):
     model = load_model(model_name=model_name)
     
     outdir = inputdir.replace("audiodata", f"multipitch/{model_name}/")
-    os.makedirs(outdir, exist_ok=False)
+    os.makedirs(outdir, exist_ok=True)
     
     for f_hcqt, fs_hcqt, hopsize_cqt, path_audio in gen_hcqts(inputdir):
         
