@@ -144,7 +144,7 @@ def main(inputdir: str, model_name: str):
     outdir = inputdir.replace("audiodata", f"multipitch/{model_name}/")
     os.makedirs(outdir, exist_ok=False)
     
-    for f_hcqt, fs_hcqt, hopsize_cqt, path_audio in gen_hcqts():
+    for f_hcqt, fs_hcqt, hopsize_cqt, path_audio in gen_hcqts(inputdir):
         
         preds = predict(f_hcqt, fs_hcqt, hopsize_cqt, model)
         
