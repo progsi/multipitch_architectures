@@ -56,7 +56,7 @@ def load_model(model_name: str):
     model.eval()
     summary(model, input_size=(1, 6, 174, 216))
     
-    return model
+    return model, mp
 
 
 def gen_hcqts(inputdir: str):
@@ -88,7 +88,7 @@ def gen_hcqts(inputdir: str):
                 yield f_hcqt, fs_hcqt, hopsize_cqt, fn_audio
 
 
-def predict(f_hcqt, fs_hcqt, hopsize_cqt, model):
+def predict(f_hcqt, fs_hcqt, hopsize_cqt, model, param_dict):
     """
     Extract multipitch features from the HCQT representation.
     """
@@ -116,7 +116,7 @@ def predict(f_hcqt, fs_hcqt, hopsize_cqt, model):
     test_set = dataset_context(inputs_context, targets_context, test_dataset_params)
     test_generator = torch.utils.data.DataLoader(test_set, **test_params)
 
-    pred_tot = np.zeros((0, model.n_bins_out))
+    pred_tot = np.zeros((0, param_dict["n_bins_out"]))
 
     max_frames = 160
     k=0
@@ -138,14 +138,14 @@ def predict(f_hcqt, fs_hcqt, hopsize_cqt, model):
 
 def main(inputdir: str, model_name: str):
     
-    model = load_model(model_name=model_name)
+    model, param_dict = load_model(model_name=model_name)
     
     outdir = inputdir.replace("audiodata", f"multipitch/{model_name}/")
     os.makedirs(outdir, exist_ok=True)
     
     for f_hcqt, fs_hcqt, hopsize_cqt, path_audio in gen_hcqts(inputdir):
         
-        preds = predict(f_hcqt, fs_hcqt, hopsize_cqt, model)
+        preds = predict(f_hcqt, fs_hcqt, hopsize_cqt, model, param_dict)
         
         with h5py.File(path_audio.replace("audiodata", f"multipitch/{model_name}/"), "w") as f:
             
