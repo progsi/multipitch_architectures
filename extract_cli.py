@@ -79,8 +79,7 @@ def gen_hcqts(inputdir: str):
             
                 fn_audio = os.path.join(root, file)
 
-                path_audio = os.path.join(inputdir, fn_audio)
-                f_audio, fs_load = librosa.load(path_audio, sr=fs)
+                f_audio, fs_load = librosa.load(fn_audio, sr=fs)
             
                 f_hcqt, fs_hcqt, hopsize_cqt = compute_efficient_hcqt(f_audio, fs=fs_load, fmin=librosa.note_to_hz('C1'), fs_hcqt_target=50, \
                                                                 bins_per_octave=hp["bins_per_semitone"]*12, num_octaves=hp["num_octaves"], \
