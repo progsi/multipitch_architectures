@@ -85,7 +85,7 @@ def gen_hcqts(inputdir: str):
                                                                 bins_per_octave=hp["bins_per_semitone"]*12, num_octaves=hp["num_octaves"], \
                                                                 num_harmonics=hp["num_harmonics"], num_subharmonics=hp["num_subharmonics"], center_bins=hp["center_bins"])
                 
-                yield f_hcqt, fs_hcqt, hopsize_cqt, path_audio
+                yield f_hcqt, fs_hcqt, hopsize_cqt, fn_audio
 
 
 def predict(f_hcqt, fs_hcqt, hopsize_cqt, model):
