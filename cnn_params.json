@@ -1,0 +1,9 @@
+{
+    "n_chan_input": 6,
+    "n_chan_layers": [128,180,150,100],
+    "n_ch_out": 2,
+    "n_bins_in": 216,
+    "n_bins_out": 72,
+    "a_lrelu": 0.3,
+    "p_dropout": 0.2
+                }

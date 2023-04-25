@@ -1,0 +1,8 @@
+{
+    "bins_per_semitone": 3,
+    "num_octaves": 6,
+    "n_bins": 216,
+    "num_harmonics": 5,
+    "num_subharmonics": 1,
+    "center_bins": true
+}
