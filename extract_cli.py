@@ -146,8 +146,7 @@ def main(inputdir: str, model_name: str):
         preds = predict(f_hcqt, fs_hcqt, hopsize_cqt, model, param_dict)
         
         outfile_path = path_audio.replace("audiodata", f"multipitch/{model_name}/")        
-        os.makedirs(outfile_path, exist_ok=True)
-
+        os.makedirs(os.path.dirname(outfile_path), exist_ok=True)
 
         with h5py.File(outfile_path, "w") as f:
             
