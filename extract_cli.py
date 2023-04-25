@@ -140,14 +140,16 @@ def main(inputdir: str, model_name: str):
     
     model, param_dict = load_model(model_name=model_name)
     
-    outdir = inputdir.replace("audiodata", f"multipitch/{model_name}/")
-    os.makedirs(outdir, exist_ok=True)
     
     for f_hcqt, fs_hcqt, hopsize_cqt, path_audio in gen_hcqts(inputdir):
         
         preds = predict(f_hcqt, fs_hcqt, hopsize_cqt, model, param_dict)
         
-        with h5py.File(path_audio.replace("audiodata", f"multipitch/{model_name}/"), "w") as f:
+        outfile_path = path_audio.replace("audiodata", f"multipitch/{model_name}/")        
+        os.makedirs(outfile_path, exist_ok=True)
+
+
+        with h5py.File(outfile_path, "w") as f:
             
             f.create_dataset(name='multipitch', data=preds)
             
