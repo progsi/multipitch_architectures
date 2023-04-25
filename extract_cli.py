@@ -21,12 +21,12 @@ from libdl.data_preprocessing import compute_hopsize_cqt, compute_hcqt, compute_
 from torchinfo import summary
 
 
-def load_model(model: str):
+def load_model(model_name: str):
     """
     Initialize model weights and load parameters.
     """
     
-    if model == 'unet':
+    if model_name == 'unet':
         params_file = 'unet_params.json'
 
         fn_model = 'RETRAIN4_exp195f_musicnet_aligned_unet_extremelylarge_polyphony_softmax_rerun1.pt'
@@ -34,7 +34,7 @@ def load_model(model: str):
     else:
         params_file = 'cnn_params.json'
         
-        if 'bigmix' in  model:
+        if 'bigmix' in  model_name:
             fn_model = 'exp214c_bigmix_aligned_cnn_deepresnetwide.pt'
         else:
             fn_model = 'RETRAIN4_exp128c_musicnet_aligned_cnn_deepresnetwide_moresamples_rerun2.pt'
@@ -137,9 +137,9 @@ def predict(f_hcqt, fs_hcqt, hopsize_cqt, model):
     
     
 
-def main(inputdir: str, model: str):
+def main(inputdir: str, model_name: str):
     
-    model = load_model(model=model)
+    model = load_model(model_name=model_name)
     
     outdir = inputdir.replace("audiodata", f"multipitch/{model}/")
     os.makedirs(outdir, exist_ok=False)
@@ -148,7 +148,7 @@ def main(inputdir: str, model: str):
         
         preds = predict(f_hcqt, fs_hcqt, hopsize_cqt, model)
         
-        with h5py.File(path_audio.replace("audiodata", f"multipitch/{model}/"), "w") as f:
+        with h5py.File(path_audio.replace("audiodata", f"multipitch/{model_name}/"), "w") as f:
             
             f.create_dataset(name='multipitch', data=preds)
             

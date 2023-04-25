@@ -41,6 +41,7 @@ dependencies:
   - gmp=6.2.1=h295c915_3
   - gmpy2=2.1.2=py39heeb90bb_0
   - gnutls=3.6.15=he1e5248_0
+  - h5py
   - idna=3.4=py39h06a4308_0
   - intel-openmp=2021.4.0=h06a4308_3561
   - ipykernel=6.19.2=py39hb070fc8_0
